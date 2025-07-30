@@ -1,0 +1,8 @@
+---
+- name: Run GitLab CE in Docker with Tailscale
+  hosts: gitlab
+  become: true
+  roles:
+    - docker
+    - gitlab
+    - tailscale

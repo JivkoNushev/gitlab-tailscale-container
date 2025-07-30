@@ -1,0 +1,10 @@
+---
+- name: Install Tailscale
+  shell: curl -fsSL https://tailscale.com/install.sh | sh
+  args:
+    executable: /bin/bash
+
+- name: Start and authenticate Tailscale
+  shell: tailscale up --ssh --hostname=gitlab-docker
+  register: tailscale_up
+  changed_when: "'Success.' in tailscale_up.stdout"

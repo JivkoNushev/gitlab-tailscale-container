@@ -1,0 +1,13 @@
+---
+- name: Install Docker and Docker Compose
+  apt:
+    name: [docker.io, docker-compose, python3-pip]
+    state: present
+    update_cache: yes
+
+- name: Ensure Docker is running
+  service:
+    name: docker
+    state: started
+    enabled: true
+
